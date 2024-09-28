@@ -33,11 +33,11 @@ function waitForTimeout(ms: number): Promise<void> {
 
   // Função de callback para tratar as mensagens recebidas (sucesso e erro)
   const onMessageReceived = {
-    onSuccess: (data: any) => {
-      console.log(999, data)      
+    onSuccess: (data: any, chatId?: string) => {
+      console.log(999, data, chatId)      
   
-      if (data && data.chatId) {
-        ChatIdUpdated = data.chatId;
+      if (chatId) {
+        ChatIdUpdated = chatId;
         if (ChatIdUpdated) {
           client.setChatId(ChatIdUpdated); // Atualiza o ChatID no WebClient
         }

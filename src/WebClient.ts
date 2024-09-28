@@ -175,7 +175,7 @@ export class WebClient implements IWebClient {
 
           // Se não for um chatId, chama o callback de sucesso
           if (message) {
-            this.onMessageCallback.onSuccess(message); // Passa a mensagem ou parsedData
+            this.onMessageCallback.onSuccess(message, this.chatId); // Passa a mensagem ou parsedData
             this.logDebug(
               `Mensagem recebida: ${JSON.stringify(message, null, 4)}`
             );
