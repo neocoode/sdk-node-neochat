@@ -29,35 +29,52 @@ function waitForTimeout(ms: number): Promise<void> {
 
 // Função assíncrona para enviar as mensagens com o delay
 (async () => {
-  let ChatIdUpdated = null; // Variável para armazenar o ChatID atualizado
-  
+  let ChatIdUpdated; // Variável para armazenar o ChatID atualizado
+
   // Função de callback para tratar as mensagens recebidas (sucesso e erro)
-  const onMessageReceived = {    
-    onSuccess: (data: string) => {
-      console.log("Resposta do servidor WebSocket:", data);
-      if (data.includes("chatId")) {
-        // Parseando o chatId da resposta
-        const parsedData = JSON.parse(data);
-        ChatIdUpdated = parsedData.chatId;
-        client.setChatId(ChatIdUpdated); // Atualiza o ChatID no WebClient
+  const onMessageReceived = {
+    onSuccess: (data: any) => {
+      console.log(999, data)      
+  
+      if (data && data.chatId) {
+        ChatIdUpdated = data.chatId;
+        if (ChatIdUpdated) {
+          client.setChatId(ChatIdUpdated); // Atualiza o ChatID no WebClient
+        }
       }
     },
     onError: (error: string) => {
       console.error("Erro ao processar a mensagem:", error);
     },
   };
+  
 
-  // Cria uma instância do WebClient com os callbacks personalizados
-  let client = new WebClient(onMessageReceived, onEvent);
+  // Definindo as opções de configuração do WebSocket
+  const wsOptions = {
+    wsUrl: "ws://localhost", // URL do WebSocket
+    wsPort: "3525", // Porta do WebSocket
+    maxReconnectAttempts: 5,
+    reconnectInterval: 3000,
+    timeoutDuration: 30000,
+    debug: true, // Define se o modo debug está ativado
+  };
+
+  // Cria uma instância do WebClient com os callbacks personalizados e opções de WebSocket
+  let client = new WebClient(onMessageReceived, wsOptions, onEvent);
 
   // Envia a primeira mensagem imediatamente
   client.sendMessage("Bom dia");
-  
+
   // Aguarda até que o ChatID seja atualizado antes de continuar
-  await waitForTimeout(10000); // Aguarda 3 segundos antes de enviar a segunda mensagem
+  await waitForTimeout(10000); // Aguarda 10 segundos antes de enviar a segunda mensagem
 
   if (ChatIdUpdated) {
-    const client2 = new WebClient(onMessageReceived, onEvent, ChatIdUpdated); // Atualiza o client com o ChatID
+    const client2 = new WebClient(
+      onMessageReceived,
+      wsOptions,
+      onEvent,
+      ChatIdUpdated
+    ); // Atualiza o client com o ChatID
     client2.sendMessage("empresa apple"); // Envia a segunda mensagem com o novo ChatID
-  } 
+  }
 })();

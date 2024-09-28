@@ -1,6 +1,5 @@
 # Ignorar diretórios e arquivos de desenvolvimento
 node_modules/
-dist/
 src/
 src/dev.ts
 src/dev.js
