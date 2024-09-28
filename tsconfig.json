@@ -3,7 +3,7 @@
     "outDir": "./dist",                    // Define onde os arquivos de saída irão
     "rootDir": "./src",                    // Define a pasta raiz dos arquivos TypeScript
     "declaration": true,                   // Gera arquivos .d.ts
-    "emitDeclarationOnly": true,           // Gera apenas os arquivos de declaração .d.ts
+    "emitDeclarationOnly": false,          // Gera arquivos .js e .d.ts
     "moduleResolution": "node",            // Resolve módulos no estilo Node.js
     "strict": true,                        // Ativa verificações estritas de tipo
     "skipLibCheck": true,                  // Ignora verificação de tipos de bibliotecas externas
