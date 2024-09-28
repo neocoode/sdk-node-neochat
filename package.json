@@ -1,13 +1,13 @@
 {
   "name": "@neocoode/sdk-neochat",
-  "version": "1.0.9",
-  "main": "dist/index.js",
+  "version": "1.0.11",
+  "main": "dist/index.ts",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "ts-node src/dev.ts",
     "clean": "rm -rf dist",
-     "build": "npm run clean && tsc && rm -f dist/dev.js",
-      "prepublishOnly": "npm version patch --no-git-tag-version && npm run build"
+    "build": "npm run clean && tsc && rm -f dist/dev.js",
+    "prepublishOnly": "npm version patch --no-git-tag-version && npm run build"
   },
   "files": [
     "dist",
