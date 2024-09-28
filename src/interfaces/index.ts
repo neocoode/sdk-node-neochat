@@ -1,5 +1,5 @@
-export { EEventType } from './EEventType';
-export { ICustomOptions } from './ICustomOptions';
-export { IMessageCallback } from './IMessageCallback';
-export { IWebClient } from './IWebClient';
-export { TEventCallback } from './TEventCallback';
+export * from './EEventType';
+export * from './ICustomOptions';
+export * from './IMessageCallback';
+export * from './IWebClient';
+export * from './TEventCallback';
