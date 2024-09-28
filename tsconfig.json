@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",             // Coloca os arquivos compilados em ./dist
+    "rootDir": "./src",             // Define ./src como o diretório raiz dos arquivos TypeScript
+    "target": "es2020",             // Define a versão ECMAScript alvo
+    "module": "commonjs",           // Usa o sistema de módulos CommonJS
+    "strict": true,                 // Habilita verificações de tipo estritas
+    "esModuleInterop": true,        // Habilita interoperabilidade com módulos ES
+    "skipLibCheck": true,           // Ignora a checagem de tipos nas definições de bibliotecas
+    "forceConsistentCasingInFileNames": true // Garante case-sensitivity nos imports
+  },
+  "include": ["src/**/*.ts"],       // Inclui todos os arquivos .ts na pasta src
+  "exclude": ["node_modules", "dist"] // Exclui node_modules e dist
+}

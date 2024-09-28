@@ -1,0 +1,24 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Diretórios de saída
+dist/
+build/
+
+# Ambiente
+.env
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Cache do TypeScript
+*.tsbuildinfo
+sdk-node-neochat***
+*.tgz

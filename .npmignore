@@ -1,0 +1,21 @@
+# Ignorar diretórios e arquivos de desenvolvimento
+node_modules/
+dist/
+src/
+src/dev.ts
+src/dev.js
+test/
+coverage/
+
+# Ignorar arquivos de configuração e logs
+.git/
+.vscode/
+.idea/
+*.log
+.env
+*.tsbuildinfo
+
+# Ignorar outros arquivos não necessários
+tsconfig.json
+package-lock.json
+yarn.lock
