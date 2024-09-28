@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",             // Coloca os arquivos compilados em ./dist
-    "rootDir": "./src",             // Define ./src como o diretório raiz dos arquivos TypeScript
-    "target": "es2020",             // Define a versão ECMAScript alvo
-    "module": "commonjs",           // Usa o sistema de módulos CommonJS
-    "strict": true,                 // Habilita verificações de tipo estritas
-    "esModuleInterop": true,        // Habilita interoperabilidade com módulos ES
-    "skipLibCheck": true,           // Ignora a checagem de tipos nas definições de bibliotecas
-    "forceConsistentCasingInFileNames": true // Garante case-sensitivity nos imports
+    "outDir": "./dist",                    // Define onde os arquivos de saída irão
+    "rootDir": "./src",                    // Define a pasta raiz dos arquivos TypeScript
+    "declaration": true,                   // Gera arquivos .d.ts
+    "emitDeclarationOnly": true,           // Gera apenas os arquivos de declaração .d.ts
+    "moduleResolution": "node",            // Resolve módulos no estilo Node.js
+    "strict": true,                        // Ativa verificações estritas de tipo
+    "skipLibCheck": true,                  // Ignora verificação de tipos de bibliotecas externas
+    "esModuleInterop": true,               // Interop para módulos ES
+    "target": "esnext",                    // Define o alvo de compilação como ESNext
+    "module": "commonjs"                   // Usa o sistema de módulos CommonJS
   },
-  "include": ["src/**/*.ts"],       // Inclui todos os arquivos .ts na pasta src
-  "exclude": ["node_modules", "dist"] // Exclui node_modules e dist
+  "include": ["src/**/*.ts"],              // Inclui todos os arquivos TypeScript da pasta src
+  "exclude": ["node_modules", "dist"]      // Exclui node_modules e dist
 }
